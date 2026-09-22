@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nave 9 Gimnasio | Fotos</title>
+  <meta name="description" content="Fotos de Nave 9, un gimnasio con sala de musculación, poleas y peso libre.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="marca" href="index.html">Nave <span>9</span></a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html" aria-current="page">Fotos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="portada contenedor">
+      <h1>Espacio, hierro y buena luz.</h1>
+      <p>Máquinas guiadas, poleas y peso libre en una sola sala. Mira cómo es por dentro y ven a probarla.</p>
+      <a class="boton" href="contacto.html">Pide tu prueba gratis</a>
+    </section>
+
+    <section class="contenedor" aria-labelledby="titulo-galeria">
+      <h2 id="titulo-galeria" class="solo-lectores">Galería de fotos del gimnasio</h2>
+
+      <ul class="mosaico">
+        <li>
+          <button class="foto" type="button"
+                  data-grande="img/poleas-y-maquinas.jpg"
+                  data-texto="Poleas y máquinas guiadas">
+            <img src="img/poleas-y-maquinas.jpg" width="1515" height="852"
+                 alt="Pasillo entre dos torres de poleas con la zona de máquinas y peso libre al fondo">
+            <span class="pie">Poleas y máquinas guiadas</span>
+          </button>
+        </li>
+        <li>
+          <button class="foto" type="button"
+                  data-grande="img/press-hombros.jpg"
+                  data-texto="Press de hombros con mancuernas">
+            <img src="img/press-hombros.jpg" width="1181" height="886" loading="lazy"
+                 alt="Hombre haciendo press de hombros con mancuernas sentado en un banco">
+            <span class="pie">Press de hombros con mancuernas</span>
+          </button>
+        </li>
+        <li>
+          <button class="foto" type="button"
+                  data-grande="img/curl-biceps.jpg"
+                  data-texto="Curl de bíceps con mancuerna">
+            <img src="img/curl-biceps.jpg" width="1181" height="886" loading="lazy"
+                 alt="Mujer haciendo un curl de bíceps con una mancuerna bajo las luces de la sala">
+            <span class="pie">Curl de bíceps con mancuerna</span>
+          </button>
+        </li>
+        <li>
+          <button class="foto" type="button"
+                  data-grande="img/sala-musculacion.jpg"
+                  data-texto="La sala de musculación">
+            <img src="img/sala-musculacion.jpg" width="937" height="610" loading="lazy"
+                 alt="Sala de musculación con discos, bancos y máquinas, iluminada por tiras de luz y paneles azules">
+            <span class="pie">La sala de musculación</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="pie-web">
+    <div class="contenedor">
+      Nave 9 Gimnasio. Web de práctica para la asignatura Diseño de interfaces Web.
+    </div>
+  </footer>
+
+  <!-- Visor para ver cada foto en grande -->
+  <dialog class="visor" id="visor" aria-label="Foto ampliada">
+    <img id="visor-img" src="" alt="">
+    <div class="visor-barra">
+      <p id="visor-texto"></p>
+      <button type="button" id="visor-cerrar">Cerrar</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

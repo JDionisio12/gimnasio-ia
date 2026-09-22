@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nave 9 Gimnasio | Contacto</title>
+  <meta name="description" content="Pide información o una prueba gratis en Nave 9 Gimnasio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="marca" href="index.html">Nave <span>9</span></a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html">Fotos</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor contacto">
+
+    <section aria-labelledby="titulo-contacto">
+      <h1 id="titulo-contacto">Escríbenos</h1>
+      <p class="intro">Cuéntanos qué buscas y te respondemos en un día laborable. Puedes pedir una prueba gratis o preguntar por las cuotas.</p>
+
+      <!--
+        Este formulario todavía no envía los datos a ningún sitio.
+        Para que funcione de verdad, cambia el atributo action por la URL
+        de un servicio como Formspree y quita el bloque de JS que lo intercepta.
+      -->
+      <form class="formulario" id="formulario" action="#" method="post" novalidate>
+
+        <div class="fila">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="fila">
+          <div class="campo">
+            <label for="telefono">Teléfono <span class="ayuda">(opcional)</span></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+          </div>
+          <div class="campo">
+            <label for="motivo">¿Qué te interesa?</label>
+            <select id="motivo" name="motivo" required>
+              <option value="">Elige una opción</option>
+              <option>Prueba gratis</option>
+              <option>Cuotas y precios</option>
+              <option>Entrenamiento personal</option>
+              <option>Otra consulta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <span>Acepto que Nave 9 use mis datos para responder a este mensaje.</span>
+        </label>
+
+        <div>
+          <button class="boton" type="submit">Enviar mensaje</button>
+        </div>
+
+        <p class="estado" id="estado" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <aside class="datos" aria-labelledby="titulo-datos">
+      <h2 id="titulo-datos">Dónde y cuándo</h2>
+      <dl>
+        <dt>Dirección</dt>
+        <dd>Calle de la Fundición, 9</dd>
+
+        <dt>Horario</dt>
+        <dd>Lunes a viernes, de 7:00 a 23:00<br>Sábados y domingos, de 9:00 a 21:00</dd>
+
+        <dt>Teléfono</dt>
+        <dd><a href="tel:+34600000000">600 000 000</a></dd>
+
+        <dt>Correo</dt>
+        <dd><a href="mailto:hola@nave9.example">hola@nave9.example</a></dd>
+      </dl>
+    </aside>
+
+  </main>
+
+  <footer class="pie-web">
+    <div class="contenedor">
+      Nave 9 Gimnasio. Web de práctica para la asignatura Diseño de interfaces Web.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

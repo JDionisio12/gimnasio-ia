@@ -1,0 +1,433 @@
+/* ==========================================================
+   Nave 9 Gimnasio - estilos compartidos
+   Paleta sacada de las fotos: asfalto, hormigón, azul de los
+   paneles LED y amarillo de las máquinas.
+   ========================================================== */
+
+:root {
+  --asfalto: #14171b;
+  --hormigon: #1f2429;
+  --linea: #333a41;
+  --acero: #e8ebee;
+  --gris: #9aa3ad;
+  --azul: #2e6bff;
+  --amarillo: #f4d03f;
+
+  --fuente-titulo: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --fuente-texto: "Barlow", "Helvetica Neue", Arial, sans-serif;
+
+  --ancho: 1120px;
+  --espacio: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--asfalto);
+  color: var(--acero);
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 3px;
+}
+
+.contenedor {
+  width: min(100% - 2 * var(--espacio), var(--ancho));
+  margin-inline: auto;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Cabecera y navegación ---------- */
+
+.cabecera {
+  border-bottom: 1px solid var(--linea);
+}
+
+.cabecera .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+.marca {
+  font-family: var(--fuente-titulo);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.marca span {
+  color: var(--amarillo);
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.nav a {
+  padding: 0.5rem 0.9rem;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  color: var(--gris);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--acero);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--acero);
+  border-bottom-color: var(--azul);
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border: 0;
+  border-radius: 2px;
+  background: var(--amarillo);
+  color: var(--asfalto);
+  font: 600 1.05rem/1 var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.boton:hover {
+  background: #ffe066;
+}
+
+/* ---------- Portada de la página de fotos ---------- */
+
+.portada {
+  padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+/* La tira azul imita los tubos de luz del techo del gimnasio */
+.portada::before {
+  content: "";
+  display: block;
+  width: min(220px, 40%);
+  height: 4px;
+  margin-bottom: 1.75rem;
+  background: var(--azul);
+  box-shadow: 0 0 18px 2px rgba(46, 107, 255, 0.55);
+}
+
+.portada h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3.25rem, 11vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+.portada p {
+  max-width: 46ch;
+  margin: 1.5rem 0 2rem;
+  color: var(--gris);
+  font-size: 1.2rem;
+}
+
+/* ---------- Galería en mosaico ---------- */
+
+.mosaico {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0 0 clamp(3rem, 7vw, 5rem);
+  list-style: none;
+}
+
+.mosaico li {
+  grid-column: span 12;
+}
+
+.foto {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--hormigon);
+  cursor: zoom-in;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto .pie {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 1rem 0.85rem;
+  background: linear-gradient(to top, rgba(20, 23, 27, 0.9), rgba(20, 23, 27, 0));
+  color: var(--acero);
+  font-weight: 500;
+  text-align: left;
+}
+
+@media (min-width: 760px) {
+  .mosaico li:nth-child(1) { grid-column: span 8; }
+  .mosaico li:nth-child(2) { grid-column: span 4; }
+  .mosaico li:nth-child(3) { grid-column: span 4; }
+  .mosaico li:nth-child(4) { grid-column: span 8; }
+
+  .foto {
+    aspect-ratio: auto;
+    height: clamp(280px, 34vw, 400px);
+  }
+
+  .mosaico li:nth-child(2) img { object-position: 38% 50%; }
+  .mosaico li:nth-child(3) img { object-position: 35% 50%; }
+}
+
+/* ---------- Visor de foto ampliada ---------- */
+
+.visor {
+  width: min(94vw, 1100px);
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid var(--linea);
+  background: var(--hormigon);
+  color: var(--acero);
+}
+
+.visor::backdrop {
+  background: rgba(10, 12, 14, 0.88);
+}
+
+.visor img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: var(--asfalto);
+}
+
+.visor-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.visor-barra p {
+  margin: 0;
+}
+
+.visor-barra button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--linea);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--acero);
+  font: 500 1rem var(--fuente-texto);
+  cursor: pointer;
+}
+
+.visor-barra button:hover {
+  border-color: var(--acero);
+}
+
+/* ---------- Página de contacto ---------- */
+
+.contacto {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4.5rem);
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+@media (min-width: 900px) {
+  .contacto {
+    grid-template-columns: 7fr 5fr;
+    align-items: start;
+  }
+}
+
+.contacto h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contacto .intro {
+  max-width: 46ch;
+  margin: 0 0 2rem;
+  color: var(--gris);
+}
+
+.formulario {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.campo {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.campo label,
+.campo legend {
+  font-weight: 500;
+}
+
+.campo .ayuda {
+  color: var(--gris);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--linea);
+  border-radius: 2px;
+  background: var(--hormigon);
+  color: var(--acero);
+  font: inherit;
+}
+
+.campo textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover {
+  border-color: var(--gris);
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 1px;
+  border-color: var(--amarillo);
+}
+
+.fila {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 560px) {
+  .fila {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.check {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  color: var(--gris);
+  font-size: 0.97rem;
+}
+
+.check input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.25rem;
+  accent-color: var(--amarillo);
+}
+
+.estado {
+  margin: 0;
+  min-height: 1.6em;
+}
+
+.estado.ok {
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--azul);
+  background: var(--hormigon);
+}
+
+.datos {
+  padding-top: 0.5rem;
+  border-top: 4px solid var(--azul);
+}
+
+.datos h2 {
+  margin: 1rem 0 1.25rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.datos dl {
+  margin: 0;
+}
+
+.datos dt {
+  margin-top: 1.25rem;
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+.datos dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.15rem;
+}
+
+/* ---------- Pie ---------- */
+
+.pie-web {
+  border-top: 1px solid var(--linea);
+  padding-block: 1.5rem;
+  color: var(--gris);
+  font-size: 0.95rem;
+}
